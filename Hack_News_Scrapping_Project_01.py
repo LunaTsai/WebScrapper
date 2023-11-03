@@ -36,12 +36,12 @@ create_custom_hn(links, subtext)
 '''
 Corrected Code
 '''
-def create_custom_hn(links, subtext): 
-    hn = [] 
-    for idx, item in enumerate(links): 
-        title = item.getText() 
-        href = item.get('href', None)  
-        vote = subtext[idx].select('.score') 
+def create_custom_hn(links, subtext):      # both links and subtexts are an array
+    hn = []                                #declare as a list as we will use "append" function in the end
+    for idx, item in enumerate(links):     # look at each link we get
+        title = item.getText()             # get the title of each link
+        href = item.get('href', None)      # get the real link in each link array, if no link, return "None"
+        vote = subtext[idx].select('.score')  # get the score of each link
         if len(vote):  
             if ' points' in vote[0].getText():
                 points = vote[0].getText().replace(' points', '')
